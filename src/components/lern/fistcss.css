@@ -1,0 +1,24 @@
+/* Общий контейнер, чтобы всё было по центру как на картинке */
+.container {
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: 50px;
+}
+
+
+.intro h1 {
+  color: #ffcc00; 
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+
+.summary {
+  color: #333399; 
+  font-size: 20px;
+}
+
+
+.summary b, .summary i {
+  color: inherit; 
+}
