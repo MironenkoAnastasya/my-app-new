@@ -5,6 +5,9 @@ import ToDoList from './components/ToDoList/ToDoList';
 import Second from './components/lern/Second';
 import { Link, NavLink, Outlet, useNavigation } from 'react-router';
 import Header from './components/Header/Header';
+import ProductList from './ProductDZ/ProductList';
+
+
 
 function App() {
  /* const navigation = useNavigation();
@@ -16,9 +19,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-
-      <Outlet /> 
+      {/*<Header />*/}
+      <ProductList />
+      {/*<Outlet />*/}
+      
     </div>
   );
 }

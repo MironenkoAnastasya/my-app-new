@@ -54,7 +54,7 @@ const Menu = () => {
             }`
           }
         >
-          Users
+          Posts
         </NavLink>
       </nav>
  
