@@ -5,7 +5,7 @@ const ProductCard = ({
     title,
     price,
     oldPrice,
-    currency = "$",
+    currency = "грн",
     image,
     rating = 0,
     inStock,
@@ -18,14 +18,14 @@ const ProductCard = ({
 
     return(
         <div style={{border: '1px solid #ccc', 
-            padding: '15px', with: '220px', borderRadius: '8px',
+            padding: '15px', width: '220px', borderRadius: '8px',
             backgroundColor: '#fff', }}>
 
         <div style={{float: 'right', fontSize: '12px', fontWeight: 'bold', color: 'red'}}>
                 {badges.join(', ').toUpperCase()}
         </div>
 
-        <img scr={image} alt={title} style={{width: '100%', height: '150px',
+        <img src={image} alt={title} style={{width: '100%', height: '150px',
             objectFit: 'cover', boarderRadius: '4px'}} />
         
         <h3>{title}</h3>
@@ -37,7 +37,7 @@ const ProductCard = ({
                     {oldPrice || Math.round(price + (price * discount / 100))} {currency}
                 </span>
             )}
-            <span style={{ fontWight: 'bold', fontSize: '18px'}}>
+            <span style={{ fontWeight: 'bold', fontSize: '18px'}}>
                 {price} {currency}
             </span>
         </div>

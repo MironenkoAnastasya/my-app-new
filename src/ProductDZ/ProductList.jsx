@@ -7,7 +7,7 @@ const myProducts = [
         title: "Навушники Pro",
         price: 1500,
         oldPrice: 1900,
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+        image: "https://stereo-news.com/wp-content/uploads/2021/04/airpods-max-obzor-besprovodnye-naushniki-apple-2021-1170x720.jpg",
         rating: 4,
         inStock: true,
         badges: ["new", "sale"]
@@ -16,7 +16,7 @@ const myProducts = [
         id: 102,
         title: "Смарт-годинник",
         price: 3000,
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+        image: "https://content.rozetka.com.ua/goods/images/big/74604035.jpg",
         rating: 5,
         inStock: true,
         badges: ["hit"]
@@ -25,7 +25,7 @@ const myProducts = [
         id: 103,
         title: "Клавіатура",
         price: 900,
-        image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500",
+        image:  "https://frime.ua/image/cache/catalog/%D0%BA%D0%BB%D0%B0%D0%B2%D0%B8%D0%B0%D1%82%D1%83%D1%80%D1%8B/moonfox/FLK18200_04-1502x1336.jpg",
         rating: 3,
         inStock: false,
         badges: []
@@ -39,7 +39,7 @@ const ProductList = () =>{
 
     return(
         <div style={{padding: '20px'}}>
-            <h2 style={{textAlingn: 'center', marginBottom: '20px'}}>Магазин товарів</h2>
+            <h2 style={{textAlign: 'center', marginBottom: '20px'}}>Магазин товарів</h2>
 
             <div style={{display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {myProducts.map((item) => (
