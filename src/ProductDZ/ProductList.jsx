@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 
 const myProducts = [
@@ -33,16 +33,70 @@ const myProducts = [
 ]
 
 const ProductList = () =>{
+
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
+    const [onlySale, setOnlySale] = useState(false);
+    const [sortBy, setSortBy] = useState("default");
+
+
+
     const handleAddToCart = (productId) => {
         alert(`Товар з ID ${productId} додано до кошику!`);
     }
 
+
+
+
+
+    const filteredProducts = myProducts.filter((item) => {
+        if (minPrice !== "" && item.price < Number(minPrice)) return false;
+        if (maxPrice !== "" && item.price > Number(maxPrice)) return false;
+        if (onlySale && !item.oldPrice) return false; 
+        return true;
+    });
+
+
+    const sortedProducts = [...filteredProducts].sort((a, b) => {
+        if (sortBy === "asc") return a.price - b.price;  
+        if (sortBy === "desc") return b.price - a.price;
+        return 0;
+    });
+
+
+
+    
     return(
         <div style={{padding: '20px'}}>
             <h2 style={{textAlign: 'center', marginBottom: '20px'}}>Магазин товарів</h2>
 
+
+
+           
+            <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', marginBottom: '20px', alignItems: 'center' }}>
+                <div>
+                    <label>Ціна від: </label>
+                    <input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} style={{ width: '60px' }} />
+                    <label> до: </label>
+                    <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} style={{ width: '60px' }} />
+                </div>
+
+                <label style={{ cursor: 'pointer' }}>
+                    <input type="checkbox" checked={onlySale} onChange={(e) => setOnlySale(e.target.checked)} />
+                    Тільки акції
+                </label>
+
+                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                    <option value="default">Сортування за замовчуванням</option>
+                    <option value="asc">Дешеві спочатку</option>
+                    <option value="desc">Дорогі спочатку</option>
+                </select>
+            </div>
+
+
+
             <div style={{display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap'}}>
-                {myProducts.map((item) => (
+                {sortedProducts.map((item) => (
                     <ProductCard
                     key={item.id}
                     id={item.id}
